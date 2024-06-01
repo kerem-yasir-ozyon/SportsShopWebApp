@@ -12,7 +12,7 @@ namespace SS.ENTITIES.Concrete
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public DateOnly BirthDay { get; set; }
+        public DateOnly BirthDate { get; set; }
         public Gender Gender { get; set; }
     }
 }

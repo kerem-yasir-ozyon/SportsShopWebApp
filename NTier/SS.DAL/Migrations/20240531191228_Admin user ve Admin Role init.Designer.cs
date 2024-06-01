@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SS.DAL.DataContext;
 
@@ -11,9 +12,11 @@ using SS.DAL.DataContext;
 namespace SS.DAL.Migrations
 {
     [DbContext(typeof(SSDbContext))]
-    partial class SSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240531191228_Admin user ve Admin Role init")]
+    partial class AdminuserveAdminRoleinit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
