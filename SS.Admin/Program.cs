@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SS.BLL.Manager.Concrete;
 using SS.DAL.DataContext;
+using SS.DAL.Repository.Concrete;
+using SS.DAL.Services.Concrete;
 using SS.ENTITIES.Concrete;
 
 namespace SS.Admin
@@ -17,11 +20,15 @@ namespace SS.Admin
             builder.Services.AddDbContext<SSDbContext>(opt =>
             {
                 opt.UseSqlServer(builder.Configuration.GetConnectionString("SSWebAppDbStr"));
-            });
+            },ServiceLifetime.Scoped);
 
             builder.Services.AddIdentityCore<AppUser>()
                             .AddDefaultTokenProviders()
                             .AddEntityFrameworkStores<SSDbContext>();
+
+            builder.Services.AddScoped<CategoryRepo>();
+            builder.Services.AddScoped<CategoryService>();
+            builder.Services.AddScoped<CategoryManager>();
 
 
             var app = builder.Build();
